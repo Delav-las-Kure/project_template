@@ -1,0 +1,44 @@
+{
+  "name": "urban",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
+    "lite": "lite-server --baseDir=\"app/dist\"",
+    "cpx:w": "cpx \"app/src/**/*.{html,png,jpg,svg,js,css,mp4,eot,ttf,woff,webm}\" app/dist --watch",
+    "cpx:build": "cpx \"app/src/**/*.{html,png,jpg,svg,js,css,mp4,eot,ttf,woff,webm}\" app/dist",
+    "tsc:build": "tsc",
+    "tsc:w": "tsc -w",
+    "rollup": "rollup -c rollup.config.js",
+    "pug:c": "pug app/src -o app/dist -b app/src -P",
+    "pug:w": "pug app/src -o app/dist -P -w",
+    "sass:w": "node-sass -w app/src/scss -o app/dist/css",
+    "sass:build": "node-sass --output-style compressed -o app/dist/css app/src/scss",
+    "autoprefixer": "postcss --no-map -u autoprefixer -r app/dist/css/*",
+    "imagemin": "imagemin app/src/img -o app/dist/img"
+  },
+  "licenses": [],
+  "dependencies": {
+    "rxjs": "^5.3.0",
+    "pug": "^2.0.0-rc.2",
+    "sass": "^1.0.0-beta.1"
+  },
+  "devDependencies": {
+    "@types/es6-promise": "^0.0.32",
+    "@types/rx": "^4.1.1",
+    "autoprefixer": "^7.1.2",
+    "concurrently": "^3.4.0",
+    "cpx": "^1.5.0",
+    "imagemin-cli": "^3.0.0",
+    "lite-server": "^2.3.0",
+    "node-sass": "^4.5.3",
+    "postcss-cli": "^4.1.0",
+    "pug-cli": "^1.0.0-alpha6",
+    "rollup": "^0.41.6",
+    "rollup-plugin-commonjs": "^8.0.2",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-uglify": "^1.0.2",
+    "systemjs": "^0.20.12",
+    "tslint": "^5.1.0",
+    "typescript": "^2.3.2"
+  }
+}

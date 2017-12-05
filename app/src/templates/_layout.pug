@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+html(lang="en")
+	head
+		meta(charset="UTF-8")
+		meta(http-equiv="X-UA-Compatible", content="IE=edge")
+		meta(name="viewport", content="width=device-width, initial-scale=1")
+		link(rel="stylesheet", href="css/main.css")
+		//link(rel="stylesheet", href="fonts/Roboto/stylesheet.css")
+		title Title
+	
+	block vars
+	- var MODE = "dev";
+	body(class=bodyClass)
+		.all-wrapper
+			include _header
+
+			block content
+
+		include _footer
+
+		block externalScripts
+		script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js")
+
+		block scripts
+		script(src="lib/jquery.inputmask.js")
+		case MODE
+			when "dev"
+				script(src="https://unpkg.com/systemjs@0.19.39/dist/system.src.js")
+				script(src="systemjs.config.js")
+				script.
+					SystemJS.import('js');
+			when "prod"
+				script(src="js/main.min.js")
+				
+
+
+		block inlineScripts
